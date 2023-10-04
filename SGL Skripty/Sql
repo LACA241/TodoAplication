@@ -12,9 +12,6 @@ CREATE TABLE szl.tasks (
 insert into szl.tasks (id_task, title, description, status, due_date, id_user)
 values(6,'Home','Car to workshop','Initial','2023-09-30',5);
 
-
-
-
 CREATE TABLE szl.users (
 	id_user int4 NOT NULL,
 	first_name varchar NULL,
