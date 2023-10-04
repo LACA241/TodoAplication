@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "Task")
+@Table(name = "Task",schema = "szl")
 public class Task {
 
     @Column(name = "id_task")
