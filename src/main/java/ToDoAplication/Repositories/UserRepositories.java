@@ -10,6 +10,5 @@ import java.util.List;
 
 public interface UserRepositories extends JpaRepository<User,Long> {
 List<User> findAllByFirst_nameOrSurename(String first_name,String surename);
-return
 
 }
