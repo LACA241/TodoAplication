@@ -14,7 +14,7 @@ public class User {
     protected Long id;
 
     @Column(name = "first_name")
-    protected String first_name;
+    protected String firstname;
 
     @Column(name = "surename")
     protected String surename;
@@ -46,11 +46,11 @@ public class User {
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstname;
     }
 
     public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+        this.firstname = first_name;
     }
 
     public String getSurename() {

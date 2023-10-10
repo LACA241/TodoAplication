@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "Task",schema = "szl")
+@Table(name = "Tasks",schema = "szl")
 public class Task {
 
     @Column(name = "id_task")
@@ -42,19 +42,7 @@ public class Task {
         this.user = user;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    @OneToMany(mappedBy = "task",fetch = FetchType.EAGER)
-@JsonIgnore
-protected Set<Task>tasks;
-
-    public Long getId() {
+      public Long getId() {
         return id;
     }
 

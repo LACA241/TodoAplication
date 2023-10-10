@@ -1,4 +1,6 @@
+package ToDoApplication;
 
+import ToDoAplication.Repositories.TaskRepositories;
 import ToDoAplication.Repositories.UserRepositories;
 import ToDoAplication.model.User;
 import org.junit.jupiter.api.Test;
@@ -11,16 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 public class UserRepositoryTests {
     @Autowired
     UserRepositories repositories;
+    @Autowired
+    TaskRepositories tasks;
 
     @Test
     void testLoadUsers() {
         List<User> userList = repositories.findAll();
         assertThat(userList).isNotEmpty();
     }
-
-
 }
