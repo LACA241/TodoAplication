@@ -18,11 +18,6 @@ public class UserController {
 
     public UserRecord getUserById(@RequestParam Long id) {
         UserRecord user = service.loadUser(id);
-
         return user;
-    }
-
-    public UserRecord () {
-        return service;
     }
 }
