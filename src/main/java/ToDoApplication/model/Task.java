@@ -1,10 +1,8 @@
-package ToDoAplication.model;
+package ToDoApplication.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "Tasks",schema = "szl")

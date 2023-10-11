@@ -1,4 +1,4 @@
-package ToDoAplication.model;
+package ToDoApplication.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

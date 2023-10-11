@@ -1,4 +1,4 @@
-package ToDoAplication.dto;
+package ToDoApplication.dto;
 
 public class UserRecord {
 }
