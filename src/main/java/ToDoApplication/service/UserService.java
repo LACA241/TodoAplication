@@ -30,7 +30,7 @@ public class UserService {
             throw new IllegalArgumentException("Email nesmie byt prazny alebo je nespravny");
         }
         if (user.getPhone()==null){
-            throw new IllegalArgumentException("Email nesmie byt prazny");
+            throw new IllegalArgumentException("Telefonne cislo nesmie byt prazny");
         }
         return userRepositories.save(user);
     }

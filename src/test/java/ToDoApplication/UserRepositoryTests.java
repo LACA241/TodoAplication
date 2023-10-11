@@ -47,8 +47,4 @@ public class UserRepositoryTests {
     void testLoadUsersByFirstNameOrSurename(){
         List<User>userList=repositories.findAllByFirstnameOrSurename("Peter","");
     }
-   // @Test
-   /* void testLoadUserByPhone(){
-        List<User>userList=repositories.findByPhone();
-    }*/
 }
