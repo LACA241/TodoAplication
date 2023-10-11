@@ -11,11 +11,10 @@ import java.util.List;
 
 @Repository
 public interface UserRepositories extends JpaRepository<User,Long> {
-List<User> findAllByFirstnameOrSurename();
+List<User> findAllByFirstnameOrSurename(String firstname,String surename);
+
 @Query
-List<User>findByFirstnameOrSurenameLike(String firstname,String surename);
+    List<User>findAllByFirstnameContaining(String firstname, Pageable page);
 @Query
-    List<User>findAllByAnyName(@Param("searchString") String search, Pageable page);
-@Query
-    List<User>findByEmailAddress();
+    List<User>findByEmailAddress(String emailAddress);
 }

@@ -17,22 +17,20 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.data.domain.Pageable;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.STRING;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-@Configuration
 public class UserRepositoryTests {
     @Autowired
     UserRepositories repositories;
-    @Autowired
-    TaskRepositories tasks;
 
     @Test
     void testLoadUsersBySearcheString(){
-        Pageable pageable= PageRequest.of(0,2, Sort.by("name"));
-        List<User>userList=repositories.findAllByAnyName("ze",pageable);
-        assertThat(userList).hasSize(2);
+        Pageable pageable= PageRequest.of(0,2, Sort.by("firstname"));
+        List<User>userList=repositories.findAllByFirstnameContaining("ze",pageable);
+        assertThat(userList).hasSize(1);
 
     }
     @Test
@@ -42,12 +40,11 @@ public class UserRepositoryTests {
     }
     @Test
     void testLoadUsersByEmailAddress(){
-        //co caka odo mna  pri emailadrese???
-        List<User>userList=repositories.findByEmailAddress();
+        List<User>userList=repositories.findByEmailAddress("zzelazny@yahoo.com");
         assertThat(userList).isNotEmpty();
     }
     @Test
     void testLoadUsersByFirstNameOrSurename(){
-        List<User>userList=repositories.findAllByFirstnameOrSurename();
+        List<User>userList=repositories.findAllByFirstnameOrSurename("Peter","");
     }
 }

@@ -23,7 +23,7 @@ public class User {
     protected Long phone;
 
     @Column(name = "email_address")
-    protected String email_address;
+    protected String emailAddress;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     @JsonIgnore
@@ -70,10 +70,10 @@ public class User {
     }
 
     public String getEmail_address() {
-        return email_address;
+        return emailAddress;
     }
 
     public void setEmail_address(String email_address) {
-        this.email_address = email_address;
+        this.emailAddress = email_address;
     }
 }
