@@ -16,6 +16,8 @@ List<User> findAllByFirstnameOrSurename(String firstname,String surename);
     List<User>findAllByFirstnameContaining(String firstname, Pageable page);
 @Query
     List<User>findByEmailAddress(String emailAddress);
-@Query
-    List<User>findByPhone();
+
+
+
+
 }
