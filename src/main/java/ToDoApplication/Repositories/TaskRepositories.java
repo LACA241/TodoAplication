@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @RestResource(path = "tasks")
-//@Repository
+@Repository
 public interface TaskRepositories extends JpaRepository<Task, Long> {
     List<Task>findById(int id);
     @Query
@@ -19,8 +19,8 @@ public interface TaskRepositories extends JpaRepository<Task, Long> {
     @Query
     List<Task>findByStatus(String status);
     /*@Query
-    List<Task>findByDueDate(String due_date);
-    @Query
+    List<Task>findByDueDate(String duedate);
+   /* @Query
     List<Task>findByUpdatedDate(String updated_date);
     @Query
     List<Task>findByIdUser(int id_user);*/

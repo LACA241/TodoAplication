@@ -2,7 +2,7 @@ package ToDoApplication.model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+//import java.util.Date;
 
 @Entity
 @Table(name = "Tasks",schema = "szl")
@@ -23,10 +23,10 @@ public class Task {
     protected String status;
 
     @Column(name = "due_date")
-    protected Date due_date;
+    protected String due_date;
 
     @Column(name = "updated_date")
-    protected Date updated_date;
+    protected String updated_date;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -72,19 +72,19 @@ public class Task {
         this.status = status;
     }
 
-    public Date getDue_date() {
+    public String getDue_date() {
         return due_date;
     }
 
-    public void setDue_date(Date due_date) {
+    public void setDue_date(String due_date) {
         this.due_date = due_date;
     }
 
-    public Date getUpdated_date() {
+    public String getUpdated_date() {
         return updated_date;
     }
 
-    public void setUpdated_date(Date updated_date) {
+    public void setUpdated_date(String updated_date) {
         this.updated_date = updated_date;
     }
 }

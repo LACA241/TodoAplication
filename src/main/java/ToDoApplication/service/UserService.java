@@ -1,10 +1,12 @@
 package ToDoApplication.service;
 
+import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.Repositories.UserRepositories;
 import ToDoApplication.dto.UserRecord;
 import ToDoApplication.model.User;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +20,10 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepositories userRepositories;
+    @Autowired
+    TaskRepositories taskRepositories;
 
-    public User createUser(User user) throws IllegalArgumentException {
+    public User createUser(@NotNull User user) throws IllegalArgumentException {
         if (user.getFirst_name() == null || user.getFirst_name().length() < 4) {
             throw new IllegalArgumentException("Meno kratke");
         }
@@ -37,10 +41,10 @@ public class UserService {
 
     public UserRecord loadUser(Long id) {
         Optional<User> userOptional = userRepositories.findById(id);
-        if (userOptional.isEmpty()){
+        if (userOptional.isEmpty()) {
             throw new IllegalArgumentException("User nebol najdeny");
         }
-        UserRecord record =  new UserRecord();
+        UserRecord record = new UserRecord();
 
         return record;
     }

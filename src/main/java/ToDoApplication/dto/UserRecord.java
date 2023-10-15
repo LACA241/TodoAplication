@@ -18,9 +18,4 @@ public class UserRecord {
     public String firstName, surname, email;
     List<UserRecord>recordList= new ArrayList<>();
 }
-public class CreateUser {
-    public String firstname,surname,emailaddress;
-    public int id,phone;
-    Optional<UserRecord> recordList=new ArrayList<Object>(User);
 
-}

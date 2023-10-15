@@ -43,15 +43,15 @@ public class TaskRepositoryTests {
         List<Task> taskList = repositories.findByStatus("Initial");
         assertThat(taskList).isNotEmpty();
     }
-   /* @Test
+  /* @Test
     void loadTaskByDueDate(){
-        List<Task> taskList = repositories.findByDueDate("2023 12 15");
+        List<Task> taskList = repositories.findByDueDate("20231215");
         assertThat(taskList).isNotEmpty();
     }
 
-    @Test
+   /* @Test
     void loadTaskByUpdatedDate (){
-        List<Task> taskList=repositories.findByUpdatedDate(" ");
+        List<Task> taskList=repositories.findByUpdatedDate("2023-12-15 ");
         assertThat(taskList).isEmpty();
     }
     @Test
