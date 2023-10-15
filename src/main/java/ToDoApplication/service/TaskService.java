@@ -21,7 +21,7 @@ public class TaskService {
     public TaskRecord loadTask(Long id) {
         Optional<Task> taskOptional = taskRepositories.findById(id);
         if (taskOptional.isEmpty()) {
-            throw new IllegalArgumentException("User nebol najdeny");
+            throw new IllegalArgumentException("Task nebol najdeny");
         }
         TaskRecord record = new TaskRecord();
         return record;

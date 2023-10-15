@@ -4,19 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRecord {
-    public String firstName, surname, email;
-    int Phone;
-    List<UserRecord>recordList= new ArrayList<>();
+public class UserExport {
+        List<UserRecord> listUsers = new ArrayList<>();
+    }
 }
-
