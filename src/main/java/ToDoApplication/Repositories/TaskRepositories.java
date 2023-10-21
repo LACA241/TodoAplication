@@ -1,6 +1,7 @@
 package ToDoApplication.Repositories;
 
 import ToDoApplication.model.Task;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -18,10 +19,9 @@ public interface TaskRepositories extends JpaRepository<Task, Long> {
     List<Task>findByDescription(String description);
     @Query
     List<Task>findByStatus(String status);
-    /*@Query
-    List<Task>findByDueDate(String duedate);
-   /* @Query
-    List<Task>findByUpdatedDate(String updated_date);
+
+   /* List<Task>findByDueDate(String duedate);
     @Query
-    List<Task>findByIdUser(int id_user);*/
+    List<Task>findByUpdatedDate(String updateddate);
+*/
 }

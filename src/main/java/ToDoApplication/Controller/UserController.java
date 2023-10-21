@@ -29,6 +29,4 @@ public class UserController {
         UserRecord user = service.loadUser(id);
         return user;
     }
-
-
 }

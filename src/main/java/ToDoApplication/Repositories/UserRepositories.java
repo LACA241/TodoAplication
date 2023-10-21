@@ -17,7 +17,7 @@ List<User> findAllByFirstnameOrSurename(String firstname,String surename);
 @Query
     List<User>findByEmailAddress(String emailAddress);
 @Query
-    List<User>findByPhone(int phone);
+    List<User>findByPhone(Long phone);
 
 
 

@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -26,5 +27,15 @@ public class TaskService {
         TaskRecord record = new TaskRecord();
         return record;
     }
+    public TaskRecord putTask(Long idtask){
+        Optional<Task>taskOptional=taskRepositories.findById(idtask);
+        if (taskOptional.isEmpty()){
+            throw new IllegalArgumentException("Task bol  ulozeny");
+        }
+        TaskRecord record=new TaskRecord();
+        return record;
+    }
+
+
 
 }

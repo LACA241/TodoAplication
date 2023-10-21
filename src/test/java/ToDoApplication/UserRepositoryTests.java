@@ -27,7 +27,6 @@ public class UserRepositoryTests {
         Pageable pageable= PageRequest.of(0,2, Sort.by("firstname"));
         List<User>userList=repositories.findAllByFirstnameContaining("ze",pageable);
         assertThat(userList).hasSize(1);
-
     }
     @Test
     void testLoadUsers() {
@@ -45,9 +44,6 @@ public class UserRepositoryTests {
     }
     @Test
     void testLoadUsersByPhone(){
-        List<User>userList=repositories.findByPhone(903654951);
+        List<User>userList=repositories.findByPhone(903654951L);
     }
-
-
-
 }

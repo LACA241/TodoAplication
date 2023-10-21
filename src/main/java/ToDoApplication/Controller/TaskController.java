@@ -20,4 +20,8 @@ public class TaskController {
         TaskRecord task = taskService.loadTask(idtask);
         return task;
     }
+    public TaskRecord putTask (@RequestParam Long idtask){
+        TaskRecord task =taskService.putTask(idtask);
+                return task;
+    }
 }

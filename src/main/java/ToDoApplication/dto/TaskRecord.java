@@ -1,9 +1,6 @@
 package ToDoApplication.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +9,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class TaskRecord {
-    public String title, description, status,due_date;
-    int id_task,id_user;
-    List<TaskRecord> recordList= new ArrayList<>();
+    public String title, description, status,duedate;
+    Long idtask,iduser;
+    public static List<TaskRecord> taskRecordList= new ArrayList<>();
 }
+

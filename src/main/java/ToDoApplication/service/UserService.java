@@ -2,7 +2,6 @@ package ToDoApplication.service;
 
 import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.Repositories.UserRepositories;
-import ToDoApplication.dto.UserExport;
 import ToDoApplication.dto.UserRecord;
 import ToDoApplication.model.User;
 import jakarta.transaction.Transactional;
@@ -35,24 +34,20 @@ public class UserService {
         return record;
     }
 
-    public CreateUser exportAllUsers() {
+    public CreateUser createUser() {
 
-        UserExport usersExport = new UserExport();
+        UserRecord userRecord = new UserRecord();
 
         List<User> users = userRepositories.findAll();
 
         for(User user : users) {
             UserRecord record = UserRecord.builder()
-                    .firstName(user.getFirst_name()+ " " + user.getSurename())
-                    .email(user.getEmail_address())+""+user.getPhone())
-                    .build();
+                    .firstName(user.getFirst_name()+ " " + user.getSurename()+" " +user
+                            .getEmail_address()+" "+user.getPhone())
+                     .build();
 
-            usersExport.getListUsers().add(record);
+           userRepositories.save(user);
         }
-
-        return CreateUser;
-    }
-
-    private void build() {
+        return createUser();
     }
 }

@@ -16,7 +16,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserRecord {
     public String firstName, surname, email;
-    int Phone;
+    Long Phone;
     List<UserRecord>recordList= new ArrayList<>();
 }
 

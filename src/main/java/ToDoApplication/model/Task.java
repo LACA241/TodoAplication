@@ -23,10 +23,10 @@ public class Task {
     protected String status;
 
     @Column(name = "due_date")
-    protected String due_date;
+    protected String duedate;
 
     @Column(name = "updated_date")
-    protected String updated_date;
+    protected String updateddate;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -72,19 +72,19 @@ public class Task {
         this.status = status;
     }
 
-    public String getDue_date() {
-        return due_date;
+    public String getDuedate() {
+        return duedate;
     }
 
-    public void setDue_date(String due_date) {
-        this.due_date = due_date;
+    public void setDuedate(String duedate) {
+        this.duedate = duedate;
     }
 
-    public String getUpdated_date() {
-        return updated_date;
+    public String getUpdateddate() {
+        return updateddate;
     }
 
-    public void setUpdated_date(String updated_date) {
-        this.updated_date = updated_date;
+    public void setUpdated_date(String updateddate) {
+        this.updateddate = updateddate;
     }
 }

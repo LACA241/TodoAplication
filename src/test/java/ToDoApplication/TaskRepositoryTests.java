@@ -2,6 +2,7 @@ package ToDoApplication;
 
 
 import ToDoApplication.Repositories.TaskRepositories;
+import ToDoApplication.dto.TaskRecord;
 import ToDoApplication.model.Task;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,20 +44,21 @@ public class TaskRepositoryTests {
         List<Task> taskList = repositories.findByStatus("Initial");
         assertThat(taskList).isNotEmpty();
     }
-  /* @Test
+
+    @Test
+    void loadAllTasks(){
+        List<Task>taskList= repositories.findAll();
+        assertThat(taskList).isNotEmpty();
+    }
+ /* @Test
     void loadTaskByDueDate(){
-        List<Task> taskList = repositories.findByDueDate("20231215");
+        List<Task> taskList = repositories.findByDueDate("2023-12-15");
         assertThat(taskList).isNotEmpty();
     }
 
-   /* @Test
+    @Test
     void loadTaskByUpdatedDate (){
         List<Task> taskList=repositories.findByUpdatedDate("2023-12-15 ");
         assertThat(taskList).isEmpty();
-    }
-    @Test
-    void loadTaskByIdUser(){
-        List<Task>taskList = repositories.findByIdUser(3);
-        assertThat(taskList).isNotEmpty();
     }*/
 }
