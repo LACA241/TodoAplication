@@ -39,6 +39,10 @@ public class UserService {
 
     public User createUser(UserRecord userRecord) throws IllegalArgumentException {
 
+        List<User> existingUsers = userRepositories.findByEmailAddress(userRecord.getEmail());
+        if (existingUsers.size() > 0)
+            throw new IllegalArgumentException("Email existuje");
+
         User user = new User();
         user.setFirst_name(userRecord.getFirstName());
         user.setSurename(userRecord.getSurname());
