@@ -6,6 +6,7 @@ import ToDoApplication.model.Task;
 import ToDoApplication.service.TaskService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class TaskController {
     TaskService taskService;
-
+@RequestMapping(value = "/{idtask}")
     public TaskRecord getTaskById(@RequestParam Long idtask) {
         TaskRecord task = taskService.loadTask(idtask);
         return task;
     }
+    @PutMapping(value = "/{idtask}")
     public TaskRecord putTask (@RequestParam Long idtask){
         TaskRecord task =taskService.putTask(idtask);
                 return task;
