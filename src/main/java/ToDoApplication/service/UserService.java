@@ -53,8 +53,8 @@ public class UserService {
     public List<User> findByNameContaining(String firstname) {
         return userRepositories.findAllByFirstnameContaining(firstname);
     }
-    public List<User>findByIduser(Long id){
-        return  userRepositories.findAllById(id);
+    public Optional<User>findByIduser(Long id){
+        return  userRepositories.findById(id);
     }
 }
 

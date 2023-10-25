@@ -72,8 +72,9 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(userOptional.get());
+        // return ResponseEntity.ok(userOptional.get());
     }
+
     @Tag(name = "UserEndpoints")
     @GetMapping(value = "/")
     public ResponseEntity<User> createUser (RequestBody User ){
