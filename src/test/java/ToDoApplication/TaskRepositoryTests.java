@@ -4,15 +4,18 @@ package ToDoApplication;
 import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.dto.TaskRecord;
 import ToDoApplication.model.Task;
+import lombok.Data;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.sql.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.DATE;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -50,12 +53,12 @@ public class TaskRepositoryTests {
         List<Task>taskList= repositories.findAll();
         assertThat(taskList).isNotEmpty();
     }
- /* @Test
+ /*@Test
     void loadTaskByDueDate(){
-        List<Task> taskList = repositories.findByDueDate("2023-12-15");
+        List<Task> taskList = repositories.findByDueDate(Date.valueOf("2023-12-15"));
         assertThat(taskList).isNotEmpty();
     }
-
+/*
     @Test
     void loadTaskByUpdatedDate (){
         List<Task> taskList=repositories.findByUpdatedDate("2023-12-15 ");

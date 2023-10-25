@@ -4,8 +4,10 @@ import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.dto.TaskRecord;
 import ToDoApplication.model.Task;
 import ToDoApplication.model.TaskExport;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Date;
 import java.util.List;
 
 public class TaskExportService {
@@ -19,7 +21,7 @@ public class TaskExportService {
         for (Task task : taskList) {
             TaskRecord record = TaskRecord.builder()
                     .idtask(task.getId()).title(task.getTitle()).description(task.getDescription()).status(task.getStatus())
-                    .duedate(task.getDuedate()).iduser(task.getId())
+                    .duedate(String.valueOf(task.getDuedate())).iduser(task.getId())
                     .build();
 
             TaskRecord.taskRecordList.add(record);

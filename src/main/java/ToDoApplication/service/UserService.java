@@ -34,7 +34,7 @@ public class UserService {
         return record;
     }
 
-    public CreateUser createUser() {
+    public User createUser(User user) throws IllegalArgumentException {
 
         UserRecord userRecord = new UserRecord();
 
@@ -48,6 +48,13 @@ public class UserService {
 
            userRepositories.save(user);
         }
-        return createUser();
+        return createUser(user);
+    }
+    public List<User> findByNameContaining(String firstname) {
+        return userRepositories.findAllByFirstnameContaining(firstname);
+    }
+    public List<User>findByIduser(Long id){
+        return  userRepositories.findAllById(id);
     }
 }
+
