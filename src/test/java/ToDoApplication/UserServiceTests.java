@@ -22,6 +22,6 @@ public class UserServiceTests {
 void findUserOk(){
     Optional<User> userOptional=userService.findByIduser(1L);
     assertThat(userOptional).isNotNull();
-    assertThat(userOptional.get()).isEqualTo("Peter");
+    assertThat(userOptional.get().getFirst_name()).isEqualTo("Peter");
 }
 }
