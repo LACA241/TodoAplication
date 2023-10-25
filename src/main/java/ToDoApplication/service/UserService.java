@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -29,29 +31,24 @@ public class UserService {
         if (userOptional.isEmpty()) {
             throw new IllegalArgumentException("User nebol najdeny");
         }
-        UserRecord record = new UserRecord();
-
-        return record;
+        return UserRecord.builder()
+                .firstName(userOptional.get().getFirst_name())
+                .surname(userOptional.get().getSurename())
+                .build();
     }
 
-    public User createUser(User user) throws IllegalArgumentException {
+    public User createUser(UserRecord userRecord) throws IllegalArgumentException {
 
-        UserRecord userRecord = new UserRecord();
+        User user = new User();
+        user.setFirst_name(userRecord.getFirstName());
+        user.setSurename(userRecord.getSurname());
 
-        List<User> users = userRepositories.findAll();
-
-        for(User user : users) {
-            UserRecord record = UserRecord.builder()
-                    .firstName(user.getFirst_name()+ " " + user.getSurename()+" " +user
-                            .getEmail_address()+" "+user.getPhone())
-                     .build();
-
-           userRepositories.save(user);
-        }
-        return createUser(user);
+        return userRepositories.save(user);
     }
+
     public List<User> findByNameContaining(String firstname) {
-        return userRepositories.findAllByFirstnameContaining(firstname);
+        return userRepositories.findAllByFirstnameContaining(firstname,
+                PageRequest.of(0,100));
     }
     public Optional<User>findByIduser(Long id){
         return  userRepositories.findById(id);

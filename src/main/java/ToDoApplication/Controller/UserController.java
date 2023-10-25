@@ -59,26 +59,23 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
+    public ResponseEntity<UserRecord> getUser(@PathVariable("id") Long id) {
 
         log.debug("findUserById {}", id);
 
         if (id == null || id < 0) {
             return ResponseEntity.badRequest().build();
         }
-        Optional<User> userOptional = userService.loadUser(id);
 
-        if (userOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        UserRecord userRecord = userService.loadUser(id);
 
-        // return ResponseEntity.ok(userOptional.get());
+        return ResponseEntity.ok(userRecord);
     }
 
     @Tag(name = "UserEndpoints")
-    @GetMapping(value = "/")
-    public ResponseEntity<User> createUser (RequestBody User ){
-        User userCreated = userService.createUser();
+    @PostMapping(value = "/")
+    public ResponseEntity<User> createUser (@RequestBody UserRecord userRecord ){
+        User userCreated = userService.createUser(userRecord);
 
         return ResponseEntity.ok(userCreated);
     }

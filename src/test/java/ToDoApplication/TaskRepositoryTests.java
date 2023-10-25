@@ -4,6 +4,7 @@ package ToDoApplication;
 import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.dto.TaskRecord;
 import ToDoApplication.model.Task;
+import java.util.Optional;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class TaskRepositoryTests {
 
     @Test
     void loadTaskById() {
-        List<Task> taskList = repositories.findById(2);
+        Optional<Task> taskList = repositories.findById(2L);
         assertThat(taskList).isNotEmpty();
     }
 
@@ -53,15 +54,15 @@ public class TaskRepositoryTests {
         List<Task>taskList= repositories.findAll();
         assertThat(taskList).isNotEmpty();
     }
- /*@Test
+ @Test
     void loadTaskByDueDate(){
-        List<Task> taskList = repositories.findByDueDate(Date.valueOf("2023-12-15"));
+        List<Task> taskList = repositories.findByDuedate(Date.valueOf("2023-12-15"));
         assertThat(taskList).isNotEmpty();
     }
-/*
+
     @Test
     void loadTaskByUpdatedDate (){
-        List<Task> taskList=repositories.findByUpdatedDate("2023-12-15 ");
+        List<Task> taskList=repositories.findByUpdateddate(Date.valueOf("2023-12-15"));
         assertThat(taskList).isEmpty();
-    }*/
+    }
 }

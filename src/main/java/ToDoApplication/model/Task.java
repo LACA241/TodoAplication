@@ -28,7 +28,7 @@ public class Task {
     protected Date duedate;
 
     @Column(name = "updated_date")
-    protected java.sql.Date updateddate;
+    protected Date updateddate;
 
     @ManyToOne
     @JoinColumn(name = "id_user")

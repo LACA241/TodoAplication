@@ -13,17 +13,17 @@ import java.util.List;
 @RestResource(path = "tasks")
 @Repository
 public interface TaskRepositories extends JpaRepository<Task, Long> {
-    List<Task>findById(int id);
     @Query
     List<Task>findByTitle(String title);
     @Query
     List<Task>findByDescription(String description);
     @Query
     List<Task>findByStatus(String status);
-/*@Query
-    List<Task>findByDueDate(Date duedate);
-    /*
+
+    List<Task>findByDuedate(Date duedate);
+
+
     @Query
-    List<Task>findByUpdatedDate(String updateddate);
-*/
+    List<Task>findByUpdateddate(Date updateddate);
+
 }
