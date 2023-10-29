@@ -1,22 +1,16 @@
 package ToDoApplication.service;
 
-import ToDoApplication.Repositories.TaskRepositories;
 import ToDoApplication.Repositories.UserRepositories;
 import ToDoApplication.dto.UserRecord;
 import ToDoApplication.model.User;
 import jakarta.transaction.Transactional;
-import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.rest.webmvc.PersistentEntityResource.build;
 
 @Component
 @Transactional
@@ -39,14 +33,31 @@ public class UserService {
 
     public User createUser(UserRecord userRecord) throws IllegalArgumentException {
 
-        List<User> existingUsers = userRepositories.findByEmailAddress(userRecord.getEmail());
-        if (existingUsers.size() > 0)
-            throw new IllegalArgumentException("Email existuje");
-
         User user = new User();
         user.setFirst_name(userRecord.getFirstName());
         user.setSurename(userRecord.getSurname());
 
+        if (user.getFirst_name() == null || user.getFirst_name().length() < 4) {
+            throw new IllegalArgumentException("Meno kratke");
+        }
+        if (user.getSurename() == null || user.getSurename().length() < 4) {
+            throw new IllegalArgumentException("Meno kratke");
+        }
+        if (user.getEmail_address() == null || !user.getEmail_address().contains("@")) {
+            throw new IllegalArgumentException("Email nesmie byt prazny alebo je nespravny");
+        }
+        if (user.getPhone()==null){
+            throw new IllegalArgumentException("Telefonne cislo nesmie byt prazny");
+        }
+
+        List<User> existingUsers = userRepositories.findByEmailAddress(userRecord.getEmail());
+        if (existingUsers.size() > 0)
+            throw new IllegalArgumentException("Email existuje");
+
+      /*  User user = new User();
+        user.setFirst_name(userRecord.getFirstName());
+        user.setSurename(userRecord.getSurname());
+*/
         return userRepositories.save(user);
     }
 
