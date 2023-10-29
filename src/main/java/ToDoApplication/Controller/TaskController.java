@@ -31,8 +31,8 @@ public class TaskController {
     }
 
     @GetMapping(value = "/idUser")
-    public TaskRecord getTaskByUser(@RequestParam Long id){
-    TaskRecord task=taskService.loadTask(id);
+    public TaskRecord getTaskByUser(@RequestParam Long iduser){
+    TaskRecord task=taskService.getTaskByUser(iduser);
     return task;
     }
 
@@ -42,4 +42,5 @@ public class TaskController {
     public TaskExport exportTasks() {
         return taskExportService.exportAllTask();
     }
+
 }

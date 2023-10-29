@@ -13,7 +13,7 @@ public class Task {
     @Column(name = "id_task")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    protected Long idtask;
 
     @Column(name = "title")
     protected String title;
@@ -43,11 +43,11 @@ public class Task {
     }
 
       public Long getId() {
-        return id;
+        return idtask;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idtask = id;
     }
 
     public String getTitle() {

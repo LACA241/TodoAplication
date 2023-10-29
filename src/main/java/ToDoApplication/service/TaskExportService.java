@@ -6,13 +6,15 @@ import ToDoApplication.model.Task;
 import ToDoApplication.model.TaskExport;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 
 import java.sql.Date;
 import java.util.List;
-
+@Configuration
 public class TaskExportService {
     @Autowired
     TaskRepositories taskRepositories;
+
 
     public TaskExport exportAllTask() {
 
@@ -27,7 +29,6 @@ public class TaskExportService {
             TaskRecord.taskRecordList.add(record);
         }
         return export;
-
     }
 }
 

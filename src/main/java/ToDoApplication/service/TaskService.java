@@ -25,6 +25,7 @@ public class TaskService {
     @Autowired
     TaskExportService taskExportService;
 
+
     public TaskRecord loadTask(Long id) {
         Optional<Task> taskOptional = taskRepositories.findById(id);
         if (taskOptional.isEmpty()) {
@@ -33,9 +34,17 @@ public class TaskService {
         TaskRecord record = new TaskRecord();
         return record;
     }
+    public TaskRecord getTaskByUser(Long id){
+        Optional<Task>taskOptional=taskRepositories.findById(id);
+        if (taskOptional.isEmpty()){
+            throw new IllegalArgumentException("Task nebol najdeny");
+        }
+        TaskRecord record = new TaskRecord();
+        return record;
+    }
 
-    public TaskRecord putTask(Long idtask) {
-        Optional<Task> taskOptional = taskRepositories.findById(idtask);
+    public TaskRecord putTask(Long id) {
+        Optional<Task> taskOptional = taskRepositories.findById(id);
         if (taskOptional.isEmpty()) {
             throw new IllegalArgumentException("Task bol  ulozeny");
         }
