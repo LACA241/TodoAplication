@@ -42,6 +42,7 @@ public class UserController {
         return ResponseEntity.ok("Ok");
     }
 
+    @GetMapping(value = "/id")
     public UserRecord getUserById(@RequestParam Long id) {
         UserRecord user = userService.loadUser(id);
         return user;

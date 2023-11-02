@@ -30,7 +30,7 @@ public class TaskController {
                 return task;
     }
 
-    @GetMapping(value = "/idUser")
+    @GetMapping(value = "/iduser")
     public TaskRecord getTaskByUser(@RequestParam Long iduser){
     TaskRecord task=taskService.getTaskByUser(iduser);
     return task;

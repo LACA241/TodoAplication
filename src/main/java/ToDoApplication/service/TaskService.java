@@ -43,8 +43,8 @@ public class TaskService {
         return record;
     }
 
-    public TaskRecord putTask(Long id) {
-        Optional<Task> taskOptional = taskRepositories.findById(id);
+    public TaskRecord putTask(Long idtask) {
+        Optional<Task> taskOptional = taskRepositories.findById(idtask);
         if (taskOptional.isEmpty()) {
             throw new IllegalArgumentException("Task bol  ulozeny");
         }
