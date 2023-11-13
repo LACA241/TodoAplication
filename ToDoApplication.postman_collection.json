@@ -74,12 +74,12 @@
 			"response": []
 		},
 		{
-			"name": "putUsers",
+			"name": "SearchUser",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:7000/api/v1/Users/2",
+					"raw": "localhost:7000/api/v1/Users/search",
 					"host": [
 						"localhost"
 					],
@@ -88,7 +88,7 @@
 						"api",
 						"v1",
 						"Users",
-						"2"
+						"search"
 					]
 				}
 			},
